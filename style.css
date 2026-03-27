@@ -1,0 +1,179 @@
+@font-face {
+  font-family: "Server Mono";
+  src:  url("./ServerMono-fonts/ServerMono-Regular.woff") format("woff"),
+        url("./ServerMono-fonts/ServerMono-Regular.woff2") format("woff2");
+}
+
+:root {
+   --tesco-red: #EE1C2E;
+   --tesco-blue: #00539F;
+
+   --easing-spring: linear(0, 0.035 1.2%, 0.145 2.6%, 0.965 9.9%, 1.105 12.2%, 1.145 13.4%, 1.168 14.7%, 1.172 16%, 1.16 17.4%, 1.012 25.1%, 0.984 27.6%, 0.971 30.2%, 0.972 33%, 0.998 40.7%, 1.005 45.6%, 1);
+}
+*, *::before, *::after {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+input, button, textarea, select {
+   font-family: inherit;
+   font-size: inherit
+}
+
+img {
+   display: block;
+   max-width: 100%
+}
+
+body {
+   line-height: 1.5;
+   font-family: "Google Sans Flex", sans-serif;
+   background: rgb(227, 227, 227);
+}
+
+h1 {
+   color: var(--tesco-blue);
+}
+
+button {
+   text-align: center;
+   border: none;
+   outline: none;
+   background-color: var(--tesco-blue);
+   padding: .5em 1em;
+   color: white;
+   font-weight: bold;
+   border-radius: .3em;
+   cursor: pointer;
+
+   transition: scale 100ms;
+
+   &:hover {
+      scale: 1.05;
+   }
+   &:active {
+      scale: 0.98;
+   }
+}
+
+.receipt-wrapper {
+   rotate: -1deg;
+   position: relative;
+   padding: 2em 0;
+}
+.receipt {
+   background-color: rgb(235, 235, 235);
+   color: grey;
+   border: 1px solid rgb(199, 199, 199);
+   box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+   width: min(40ch, calc(100% - 3rem));
+   margin-inline: auto;
+   padding: .7em .5em;
+   font-family: "Geist Mono", monospace;
+   font-size: .9em;
+   font-weight: 300;
+
+   display: flex;
+   flex-direction: column;
+   
+   gap: .5em;
+   position: relative;
+
+   &:after {
+      content: "";
+      z-index: -1;
+      rotate: 2deg;
+      position: absolute;
+      background: transparent;
+      bottom: 0.8em;
+      right: .5em;
+      left: 50%;
+      top: 80%;
+      box-shadow: 0px 1em .5em rgba(0,0,0,0.3);
+   }
+}
+.receipt-folds {
+   position: absolute;
+   inset: 0;
+   user-select: none;
+
+   background-position: 10% 0;
+   background-repeat: no-repeat;
+   background-image: linear-gradient(
+      to left,
+      rgb(0 0 0 / .1),
+      transparent 5%
+   );
+   background-size: 50% 100%;
+
+   &:after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background-image: linear-gradient(
+         to top,
+         transparent,
+         rgb(0 0 0 / .05) 2.5%,
+         transparent 5%
+      );
+      background-repeat: repeat;
+      background-size: 100% min(50%, 150px);
+   }
+}
+.receipt > header {
+   text-align: center;
+   font-family: "Google Sans Flex";
+   font-weight: bold;
+   width: 100%;
+   font-size: 2em;
+   margin-bottom: -.5em;
+}
+.receipt-line {
+   width: 100%;
+   overflow: clip;
+   text-wrap: nowrap;
+   margin-block: .5em;
+}
+.receipt-row {
+   display: grid;
+   grid-template-columns: minmax(0, auto) minmax(5ch, 1fr) auto;
+   gap: 1ch;
+   align-items: start;
+
+   > span {
+      text-overflow: "";
+      overflow: clip;
+   }
+
+   &.bold {
+      font-weight: 600;
+   }
+}
+.receipt-shine {
+   width: 100%;
+   background-image: linear-gradient(transparent, white, transparent);
+   height: 2em;
+   position: absolute;
+   top: 20%;
+   left: 0;
+   mix-blend-mode: hard-light;
+}
+.item-name {
+   /* text-wrap: nowrap;
+   text-overflow: ellipsis; */
+}
+.receipt-shadow {
+   width: 100%;
+   background-image: linear-gradient(transparent, rgb(74, 74, 74), transparent);
+   height: 2em;
+   position: absolute;
+   bottom: 30%;
+}
+.row-spacer {
+   text-overflow: clip;
+   overflow: clip;
+}
+:nth-of-type(2 of .accent) {
+   color: red;
+}
