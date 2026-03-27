@@ -63,13 +63,13 @@ button {
    padding: 2em 0;
 }
 .receipt {
-   background-color: rgb(235, 235, 235);
+   background-color: rgb(241, 241, 241);
    color: grey;
    border: 1px solid rgb(199, 199, 199);
    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
    width: min(40ch, calc(100% - 3rem));
    margin-inline: auto;
-   padding: .7em .5em;
+   padding: 1.5em .5em;
    font-family: "Geist Mono", monospace;
    font-size: .9em;
    font-weight: 300;
@@ -127,7 +127,12 @@ button {
    font-weight: bold;
    width: 100%;
    font-size: 2em;
-   margin-bottom: -.5em;
+   /* margin-bottom: -.5em; */
+}
+.receipt-text {
+   text-align: center;
+   font-size: .9em;
+   line-height: 1.2;
 }
 .receipt-line {
    width: 100%;

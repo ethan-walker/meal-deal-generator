@@ -2,6 +2,10 @@ function randomItem(list) {
    return list[Math.floor(Math.random() * list.length)];
 }
 
+function randBetween(min, max) { // min and max included 
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function randomDeal() {
    [mainOptions, snackOptions, drinkOptions].forEach( (optionList, i) => {
       let item = document.querySelector(`:nth-child(${i + 1} of .receipt-row)`)
@@ -17,6 +21,9 @@ function randomDeal() {
       let priceTag = item.querySelector(".item-price")
       priceTag.textContent = choice.price;
 
+      rotate = randBetween(-3, 3);
+
+      document.querySelector(".receipt-wrapper").style.rotate = rotate + "deg";
    })
 
    sumPrice();
