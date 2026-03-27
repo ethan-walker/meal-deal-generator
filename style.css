@@ -159,10 +159,7 @@ button {
    left: 0;
    mix-blend-mode: hard-light;
 }
-.item-name {
-   /* text-wrap: nowrap;
-   text-overflow: ellipsis; */
-}
+
 .receipt-shadow {
    width: 100%;
    background-image: linear-gradient(transparent, rgb(74, 74, 74), transparent);
